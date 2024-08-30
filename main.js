@@ -42,7 +42,7 @@ function checkIfWeShouldChangeCatImage(event) {
   };
 
   const totalDistance = getTotalDistance(mousePosition, centerPosition);
-  if (totalDistance > 400) {
+  if (totalDistance > 500) {
     setCatImage(null);
     return;
   }
