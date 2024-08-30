@@ -10,13 +10,13 @@ body {
     align-items: center;
 }
 
-figure {
-    --size: 200px;
-    background-color: hotpink;
-    width: var(--size);
-    height: var(--size);
-}
-
-figure.active {
-    background-color: lightblue;
+#cat {
+    --cat-size: 500px;
+    --active-cat-sprite: 0;
+    width: var(--cat-size);
+    height: var(--cat-size);
+    background-image: url("cat-sprite.png");
+    background-position-x: calc(
+        var(--active-cat-sprite) * var(--cat-size) * -1
+    );
 }

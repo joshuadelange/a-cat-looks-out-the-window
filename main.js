@@ -19,7 +19,19 @@ function getTotalDistance(mousePosition, centerPosition) {
   return Math.sqrt(absoluteDistance.x ** 2 + absoluteDistance.y ** 2);
 }
 
-function onMouseMove(event) {
+function setCatImage(imageToSet) {
+  // global var to prevent spamming the dom if we dont need to
+  if (imageToSet === window.currentPizzaSlice) return;
+  window.currentPizzaSlice = imageToSet;
+
+  // idle state is 0
+  // then it's 1-8 for the pizza slices
+  const spriteIndex = imageToSet === null ? 0 : imageToSet + 1;
+  const catImage = document.getElementById("cat");
+  catImage.style.setProperty("--active-cat-sprite", spriteIndex);
+}
+
+function checkIfWeShouldChangeCatImage(event) {
   const mousePosition = {
     x: event.clientX,
     y: event.clientY,
@@ -30,12 +42,16 @@ function onMouseMove(event) {
   };
 
   const totalDistance = getTotalDistance(mousePosition, centerPosition);
-  if (totalDistance < 400) {
-    const sliceIndex = getSliceIndex(mousePosition, centerPosition);
-    console.log({ sliceIndex });
+  if (totalDistance > 400) {
+    setCatImage(null);
+    return;
   }
+
+  const sliceIndex = getSliceIndex(mousePosition, centerPosition);
+  setCatImage(sliceIndex);
 }
 
 window.onload = function () {
-  window.addEventListener("mousemove", onMouseMove);
+  window.currentPizzaSlice = null;
+  window.addEventListener("mousemove", checkIfWeShouldChangeCatImage);
 };
