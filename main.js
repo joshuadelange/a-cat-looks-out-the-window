@@ -8,7 +8,7 @@ function getSliceIndex(mousePosition, centerPosition) {
   const sliceWidth = (Math.PI * 2) / numberOfPizzaSlices;
 
   const theta = Math.atan2(relativeDistance.y, relativeDistance.x);
-  return Math.floor(theta / sliceWidth) + 8 / 2;
+  return Math.floor(theta / sliceWidth) + numberOfPizzaSlices / 2;
 }
 
 function getTotalDistance(mousePosition, centerPosition) {
