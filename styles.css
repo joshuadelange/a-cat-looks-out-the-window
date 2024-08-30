@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+figure {
+    --size: 200px;
+    background-color: hotpink;
+    width: var(--size);
+    height: var(--size);
+}
+
+figure.active {
+    background-color: lightblue;
+}
