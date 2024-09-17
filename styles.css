@@ -8,6 +8,7 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
+    background-color: #3d3930;
     background-image: url("bg-tile.jpg");
 }
 
