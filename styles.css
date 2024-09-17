@@ -8,10 +8,11 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
+    background-image: url("bg-tile.jpg");
 }
 
 #cat {
-    --cat-size: 500px;
+    --cat-size: min(100vw, 910px);
     --active-cat-sprite: 0;
     width: var(--cat-size);
     height: var(--cat-size);
@@ -19,4 +20,5 @@ body {
     background-position-x: calc(
         var(--active-cat-sprite) * var(--cat-size) * -1
     );
+    background-size: cover;
 }
